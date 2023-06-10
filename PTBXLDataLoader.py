@@ -12,8 +12,9 @@ from tqdm import tqdm
 class PTBXLDataLoader:
 
     dataset_name = 'ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3/'
+    _dataset = 'https://physionet.org/static/published-projects/ptb-xl/{name}.zip'.format(name=dataset_name[:-1])
 
-    def __init__(self, zip_url: str='https://physionet.org/static/published-projects/ptb-xl/{name}.zip'.format(name=dataset_name[:-1]), local_dir: str='ecg_dataset/', high_res: bool=False, val_fold: int=10) -> None:
+    def __init__(self, zip_url: str=_dataset, local_dir: str='ecg_dataset/', high_res: bool=False, val_fold: int=10) -> None:
         
         self.url = zip_url
         self._local_dir = local_dir + self.dataset_name
